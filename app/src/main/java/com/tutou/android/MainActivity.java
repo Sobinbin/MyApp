@@ -3,6 +3,7 @@ package com.tutou.android;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,WebViewActivity.class);
                 intent.putExtra("url",str);
+                Log.d("MainActivity","Jump to "+str);
                 startActivity(intent);
             }
         });
@@ -44,8 +46,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked){
+                    Log.d("MainActivity","switch on the button");
                     imageView.setImageResource(R.mipmap.wuhan);
                 } else {
+                    Log.d("MainActivity","switch off the button");
                     imageView.setImageResource(R.mipmap.mmexport1550417122856);
                 }
             }
